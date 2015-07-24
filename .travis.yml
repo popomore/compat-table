@@ -1,8 +1,5 @@
 language: node_js
 node_js:
-  - "0.10"
-script: 'npm run-script lint'
-branches:
-  only:
-    - gh-pages
-sudo: false
+  - "0.12"
+  - "iojs-1"
+  - "iojs-2"

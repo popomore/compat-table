@@ -8,9 +8,9 @@ var strict = "strict";
 var fallthrough = "needs-polyfill-or-native";
 
 var typescript = {
-    corejs: { 
-        val: true, 
-        note_id: "typescript-core-js", 
+    corejs: {
+        val: true,
+        note_id: "typescript-core-js",
         note_html: "This feature is supported when using TypeScript with core-js, or when a native ES6 host is used."
     },
     fallthrough: {
@@ -413,7 +413,7 @@ exports.tests = [
             return  "foo";
           }
           return f(n - 1);
-        }(1e6)) === "foo";
+        }(100)) === "foo";
       */},
       res: {
         tr:          {
@@ -440,7 +440,7 @@ exports.tests = [
           }
           return f(n - 1);
         }
-        return f(1e6) === "foo" && f(1e6+1) === "bar";
+        return f(100) === "foo" && f(100+1) === "bar";
       */},
       res: {
         tr:          { val: flag, note_id: 'tr-tco' },
@@ -713,7 +713,7 @@ exports.tests = [
       exec: function() {/*
         const baz = 1;
         try {
-          Function("const foo = 1; foo = 2;")();
+          Function("const foo = 1; baz = 2;")();
         } catch(e) {
           return true;
         }
@@ -2244,11 +2244,11 @@ exports.tests = [
         if (!this) return false;
         var passed = f() === 1;
         function f() { return 1; }
-        
+
         passed &= typeof g === 'undefined';
         { function g() { return 1; } }
         passed &= g() === 1;
-        
+
         passed &= h() === 2;
         { function h() { return 1; } }
         function h() { return 2; }
@@ -2266,7 +2266,7 @@ exports.tests = [
       exec: function() {/*
         // Note: only available outside of strict mode.
         if (!this) return false;
-        
+
         label: function foo() { return 2; }
         return foo() === 2;
       */},
@@ -2287,7 +2287,7 @@ exports.tests = [
       exec: function() {/*
         // Note: only available outside of strict mode.
         if (!this) return false;
-        
+
         if(true) function foo() { return 2; }
         if(false) {} else function bar() { return 3; }
         if(true) function baz() { return 4; } else {}
@@ -3133,7 +3133,7 @@ exports.tests = [
             }
             else {
               f.__proto__ = proto;
-            } 
+            }
             var boundF = Function.prototype.bind.call(f, null);
             return Object.getPrototypeOf(boundF) === proto;
           }
@@ -3154,7 +3154,7 @@ exports.tests = [
             }
             else {
               f.__proto__ = proto;
-            } 
+            }
             var boundF = Function.prototype.bind.call(f, null);
             return Object.getPrototypeOf(boundF) === proto;
           }
@@ -3175,7 +3175,7 @@ exports.tests = [
             }
             else {
               f.__proto__ = proto;
-            } 
+            }
             var boundF = Function.prototype.bind.call(f, null);
             return Object.getPrototypeOf(boundF) === proto;
           }
@@ -3196,7 +3196,7 @@ exports.tests = [
             }
             else {
               C.__proto__ = proto;
-            } 
+            }
             var boundF = Function.prototype.bind.call(C, null);
             return Object.getPrototypeOf(boundF) === proto;
           }
