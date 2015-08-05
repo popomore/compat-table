@@ -20,3 +20,8 @@ iojs@2.4.0
 
 - 230 passing (546ms)
 - 335 failing
+
+iojs@3.0.0
+
+- 251 passing (421ms)
+- 314 failing
